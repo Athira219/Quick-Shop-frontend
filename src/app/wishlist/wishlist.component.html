@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div>
+    <div *ngIf="(products.length==0)" class="row">
+        <div class=" col-sm-12 col-md-12 d-flex justify-content-center align-items-center flex-column">
+            <img class="img-fluid"  src="https://www.autoglos.com/public/frontend/images/empty-cart.png" alt="">
+            <p class="text-center text-danger fs-3 fw-bold mt-3">Your Wishlist is empty</p>
+        </div>
+    
+    </div>
+    <div *ngIf="!(products.length==0)" class="row">
+        <p class="text-center text-danger fs-2 fw-bold mt-5">Your Wishlist</p>
+        <div class="container px-4 px-lg-5 mt-5">
+    
+            <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    
+            <div *ngFor="let allproject of products"  class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img routerLink="/view/project/{{allproject.id}}" class="card-img-top" src={{allproject.image}} alt="no image" width="100%" height="180rem" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <p class="fw-bolder fs-5">{{allproject.title}}</p>
+                            <!-- Product price-->
+                           <p class="fs-3 text-success"> ${{allproject.price}}</p>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0  d-flex justify-content-between">
+                        <div class="text-center" (click)="addToCart(allproject)"><a class="btn btn-outline-success mt-auto" > <i class="fa-solid fa-cart-shopping text-success"></i></a></div>
+                        <div class="text-center"(click)='removeItem(allproject._id)' ><a class="btn btn-outline-danger mt-auto" ><i class="fa-solid fa-trash text-danger "></i></a></div>
+                    </div>
+                </div>
+            </div>
+            
+            
+    
+                    
+           
+        </div>
+    </div>
+
+    </div>
+    
+</div>

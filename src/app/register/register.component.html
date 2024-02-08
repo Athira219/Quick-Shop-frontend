@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh">
+
+        <div class="row shadow rounded">
+            <div class="col-md-6 rounded border border-light d-flex justify-content-center align-items-center ">
+                <form class="p-3 " [formGroup]="registerForm" (ngSubmit)="register()">
+                    <h3 class="mb-5 text-center text-danger" style="overflow-y: hidden;">Join Family</h3>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Username" formControlName="username" name="uname">
+                        <span *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched" class="text-danger">Invalid Username</span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="email" name="email">
+                        <span *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="text-danger">Invalid Email</span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password" name="pswd">
+                        <span *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="text-danger">Invalid Password</span>
+                    </div>
+                    <button class="btn btn-danger w-100 mt-3" >Register</button>
+                </form>
+            </div>
+            <div class="col-md-6 " style="overflow-y: hidden;" style="background-image: linear-gradient(#3f1414, #800020); ">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                    <p class="text-light fs-2 text-center mt-3"><i class="fa-solid fa-cart-shopping fa-beat-fade me-3 text-light"></i>Quick Shop</p>
+                    <p class="text-light fs-3 mb-4">Already Have an Account..?</p>
+                    <img src="{{quickShopImage}}" alt="" class="img-fluid ">
+                    <div class="centered text-light mt-5 d-flex flex-column" style="text-align: justify;">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate consequatur ducimus nisi consectetur quasi quae beatae iusto quis sapiente, incidunt possimus praesentium, eveniet quaerat quisquam officiis, aperiam maiores soluta inventore!</p>
+                        <button routerLink="/login" type="submit" class="btn text-light border border-danger w-50  align-self-start" style="margin-top: 20px;">SIGN IN </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

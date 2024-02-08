@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="https://img.freepik.com/free-vector/horizontal-sale-banner-template_23-2148897328.jpg?w=826&t=st=1706782912~exp=1706783512~hmac=fdff1313b4fa95d379a617db66990e6db17bd216983be9a218c7dbe99fa5c880"
+        class="d-block w-100 " height="390rem" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://img.freepik.com/free-psd/horizontal-banner-template-big-sale-with-woman-shopping-bags_23-2148786755.jpg"
+        class="d-block w-100" height="390rem" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.freepik.com/free-vector/gradient-boutique-design-template_23-2149309815.jpg"
+        class="d-block w-100" height="390rem" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<div class="container px-4 px-lg-5 mt-5">
+
+  <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+
+    <div *ngFor="let allproject of products " class="col mb-5">
+      <div class="card h-100">
+        <!-- Product image-->
+        <img routerLink="/view/project/{{allproject.id}}" class="card-img-top" src={{allproject.image}} alt="no image"
+          width="100%" height="180rem" />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <p class="fw-bolder fs-5">{{allproject.title}}</p>
+            <!-- Product price-->
+            <p class="fs-3 text-success"> ${{allproject.price}}</p>
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0  d-flex justify-content-between">
+          <div class="text-center" (click)="addToWishlist(allproject)"><a class="btn btn-outline-danger mt-auto"><i
+                class="fa-solid fa-heart text-danger "></i></a></div>
+          <div class="text-center" (click)="addToCart(allproject)"><a class="btn btn-outline-success mt-auto"> <i
+                class="fa-solid fa-cart-shopping text-success"></i></a></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</div>
