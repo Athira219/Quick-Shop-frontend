@@ -49,6 +49,8 @@ export class LoginComponent {
         },
         error:(err:any)=>{
           console.log(err);
+          this.toastr.error(`${err.error}`);
+
           
         }
       })

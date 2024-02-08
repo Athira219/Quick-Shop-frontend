@@ -14,38 +14,37 @@
     <h2 class="text-center text-danger mt-5 mb-5">Cart Summary</h2>
     <div class="col-sm-12 col-md-9  d-flex justify-content-center align-items-center flex-column">
       <div class="d-flex justify-content-center align-items-center">
-        <table class="table table-responsive table-bordered ms-4">
-          <thead class="text-center">
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Product Name</th>
-              <th scope="col">Image</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Price</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody class="text-center">
+        <div class="table-responsive">
+  <table class="table table-bordered ms-4">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let allproduct of products; let i=index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ allproduct.title }}</td>
+        <td><img [src]="allproduct.image" width="100" height="100" class="img-fluid" alt=""></td>
+        <td>
+          <div class="d-flex justify-content-center">
+            <button (click)="decrementItem(allproduct._id)" class="btn fw-bolder">-</button>
+            <input [value]="allproduct.quantity" class="form-control text-center" style="max-width: 3rem;" readonly type="number">
+            <button (click)="incrementItem(allproduct._id)" class="btn fw-bolder">+</button>
+          </div>
+        </td>
+        <td>${{ allproduct.price }}</td>
+        <td><button class="btn btn-outline-danger" (click)="removeItem(allproduct._id)"><i class="fa-solid fa-trash text-danger"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-            <tr *ngFor="let allproduct of products;let i=index">
-              <th scope="row">{{i+1}}</th>
-              <td>{{allproduct.title}}</td>
-              <td><img [src]="allproduct.image" width="100rem" height="100rem" class="img-fluid" alt=""></td>
-              <td class="">
-                <div class="d-flex justify-content-center">
-                  <button (click)="decrementItem(allproduct._id)" class="btn fw-bolder">-</button>
-                  <input [value]="allproduct.quantity" class="form-control text-center" style="max-width: 3rem;"
-                    readonly type="number">
-                  <button (click)="incrementItem(allproduct._id)" class="btn fw-bolder">+</button>
-                </div>
-              </td>
-              <td>${{allproduct.price}}</td>
-              <td><button class="btn btn-outline-danger" (click)="removeItem(allproduct._id)"><i
-                    class="fa-solid fa-trash text-danger "></i></button></td>
-            </tr>
-
-          </tbody>
-        </table>
       </div>
       <div class="mb-5">
         <button (click)="emptyCart()" class="btn btn-outline-danger">Empty Cart</button>
